@@ -1,0 +1,636 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;800&display=swap");
+:root {
+  --color-1: #ffffff;
+  --color-2: #f9f6f7;
+  --color-3: #f6efe5;
+  --color-4: #f7933e;
+  --text-color-1: #071434;
+  --text-color-2: #959aa3;
+  --color-black: rgba(0, 0, 0, 0);
+  --width-sm-container: 95%;
+  --width-md-container: 90%;
+  --width-lg-container: 90%;
+  --border-raduis: 0.3rem;
+  --section-padding: 5rem 0;
+}
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+a {
+  display: block;
+}
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+body {
+  position: relative;
+  overflow-x: hidden;
+  font-family: "Roboto Slab", serif;
+  line-height: 1.7;
+  background-color: var(--color-2);
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  line-height: 1;
+}
+h1 {
+  color: var(--text-color-1);
+  font-size: 3.8rem;
+}
+h2 {
+  font-size: 2.2rem;
+}
+h3 {
+  font-size: 1.6rem;
+}
+h4 {
+  font-size: 1.2rem;
+}
+h5 {
+  font-size: 0.86rem;
+}
+a {
+  text-decoration: none;
+}
+p {
+  color: var(--text-color-2);
+}
+
+ul {
+  list-style: none;
+}
+img {
+  width: 100%;
+  height: auto;
+}
+/* <=========================== CONTAINER ===========================> */
+.container {
+  overflow: hidden;
+  width: var(--width-lg-container);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+/* <=========================== MAIN BTN ===========================> */
+.main-btn {
+  background-color: var(--color-4);
+  width: fit-content;
+  padding: 0.3rem 1rem;
+  border-radius: 1rem;
+  color: white;
+  font-weight: 600;
+  border: 2px solid var(--color-4);
+  transition: 0.5s;
+}
+.main-btn:hover {
+  background-color: transparent;
+  color: var(--text-color-2);
+}
+/* <=========================== MAIN TITLE ===========================> */
+.main-title .head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-4);
+  margin-bottom: 1rem;
+}
+.main-title .head > div {
+  width: 35px;
+  height: 3px;
+  background-color: var(--color-4);
+}
+/* <=========================== PreLoader ===========================> */
+.preloader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-3);
+  z-index: 1000;
+}
+.preloader.stop {
+  display: none;
+}
+.preloader img {
+  width: 100px;
+  height: 100px;
+}
+/* <=========================== Aside NavBar ===========================> */
+.aside-navbar {
+  background-color: var(--color-2);
+  height: 100vh;
+  width: 350px;
+  position: fixed;
+  right: 0;
+  z-index: 39;
+  display: flex;
+  flex-direction: column;
+  padding: 0 5rem;
+  justify-content: center;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+  transition: transform 0.5s;
+  transform: translate(130%);
+}
+.aside-navbar.show {
+  transform: translate(0%);
+}
+.aside-navbar ul {
+  margin-top: 4rem;
+}
+.aside-navbar ul li {
+  padding: 1rem 0;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+}
+.aside-navbar ul li .active.popup {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-4);
+  margin-right: 0.5rem;
+}
+.aside-navbar ul li a {
+  color: var(--text-color-1);
+}
+.aside-navbar .social-media {
+  margin-top: 6rem;
+  display: flex;
+  gap: 1rem;
+}
+.aside-navbar .social-media svg {
+  transition: 0.5s;
+  font-size: 2rem;
+  color: var(--text-color-2);
+}
+.aside-navbar .social-media svg:hover {
+  transform: scale(1.2);
+}
+/* <=========================== AFTER CLICK  ===========================> */
+.after-click {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: var(--color-3);
+  z-index: 1000;
+  transform-origin: top left;
+  transform: skew(90deg);
+}
+/* <=========================== HEADER ===========================> */
+header {
+  overflow: hidden;
+  background-color: var(--color-3);
+  height: auto;
+}
+/* <=========================== HEADER NAV ===========================> */
+header nav {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 50;
+  transition: all 0.5s;
+}
+header nav.fixed {
+  background-color: var(--color-3);
+  position: fixed;
+  width: 100%;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+}
+.nav_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+.nav_container .logo {
+  height: 100%;
+}
+.nav_container .logo a {
+  height: 100%;
+}
+.nav_container .logo img {
+  width: 90px;
+}
+.nav_container .bars {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--border-raduis);
+  background-color: var(--color-4);
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  align-items: center;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+.nav_container .bars span {
+  width: 100%;
+  height: 1px;
+  margin: 3.5px auto;
+  background-color: white;
+  transition: 0.5s;
+}
+.nav_container .bars.change span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+.nav_container .bars.change span:nth-child(2) {
+  opacity: 0;
+}
+.nav_container .bars.change span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+/* <=========================== HEADER LANDING ===========================> */
+.landing {
+  overflow: hidden;
+  padding: var(--section-padding);
+  height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+}
+.landing_container {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  align-content: center;
+  gap: 1rem;
+}
+.landing_container .img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.landing_container .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.landing_container p {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+.landing_container p .typing {
+  color: var(--color-4);
+}
+.landing_container .main-btn {
+  margin-top: 4rem;
+}
+/* <=========================== ABOUT ===========================> */
+.about {
+  overflow: visible;
+  padding: 0 0 5rem;
+}
+
+.about_container .about-me {
+  margin: 3rem 0 4rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: 800px;
+  max-width: 100%;
+}
+.about_container .about-me img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+.about_container .about-me p {
+  font-size: 1.2rem;
+  color: var(--text-color-1);
+}
+.about_container .info-about-me {
+  display: flex;
+  align-items: center;
+  width: 800px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.about_container .info-about-me .profile {
+  width: 50%;
+}
+.about_container .info-about-me .profile h3,
+.about_container .info-about-me .skills h3 {
+  margin-bottom: 2rem;
+  color: var(--color-4);
+}
+.about_container .info-about-me .profile .box,
+.about_container .info-about-me .skills .box {
+  margin-bottom: 1.5rem;
+}
+.about_container .info-about-me .profile span,
+.about_container .info-about-me .skills span {
+  color: var(--text-color-2);
+  display: block;
+}
+.about_container .info-about-me .profile h4,
+.about_container .info-about-me .skills h4 {
+  color: var(--text-color-1);
+}
+.about_container .info-about-me .skills {
+  align-self: flex-start;
+  width: 50%;
+}
+.about_container .info-about-me .skills .box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+.about_container .info-about-me .skills .box > div {
+  width: 100%;
+  height: 6px;
+  background-color: var(--text-color-2);
+  margin-top: 0.8rem;
+  position: relative;
+  border-radius: 1rem;
+}
+.about_container .info-about-me .skills .box div .before {
+  position: absolute;
+  width: 0;
+  height: 100%;
+  top: 0;
+  border-radius: 1rem;
+  background-color: var(--text-color-1);
+}
+.about_container .main-btn {
+  margin: 3rem auto 0;
+}
+/* <=========================== WORK ===========================> */
+.work {
+  overflow: visible;
+  background-color: var(--color-3);
+  position: relative;
+}
+
+.work .boxes {
+  width: 100%;
+  padding: 3rem 0;
+}
+.work .boxes .box {
+  width: 320px;
+  height: 500px;
+  background-color: var(--color-2);
+  padding: 0.5rem;
+  border-radius: var(--border-raduis);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+  transition: 0.5s;
+  opacity: 0.6;
+  filter: grayscale(1);
+  display: flex;
+  flex-direction: column;
+}
+.swiper-slide-active {
+  filter: grayscale(0) !important;
+  opacity: 1 !important;
+}
+.swiper-pagination {
+  bottom: -40px !important;
+}
+
+.work .boxes .box img {
+  height: 200px;
+  border-radius: var(--border-raduis);
+  margin-bottom: 0.5rem;
+}
+.work .boxes .box .text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.work .boxes .box .languages {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+.work .boxes .box .languages span {
+  font-size: 0.8rem;
+  border-radius: 1rem;
+  padding: 0.1rem 0.4rem;
+  color: var(--text-color-2);
+}
+.work .boxes .box .languages .js {
+  border: 1px solid #f9b908;
+  background-color: #f9b908;
+  color: white;
+}
+.work .boxes .box .languages .html,
+.work .boxes .box .languages .css {
+  border: 1px solid var(--text-color-2);
+}
+.work .boxes .box .languages .api {
+  background-color: purple;
+  color: white;
+}
+.work .boxes .box .languages .bootstrap {
+  background-color: rgb(78, 4, 78);
+  color: white;
+}
+.work .boxes .box .foot {
+  display: flex;
+  /* margin-top: 5rem; */
+  align-items: center;
+  gap: 0.5rem;
+}
+.work .boxes .box .foot .code {
+  width: 50px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  text-align: center;
+  background-color: var(--text-color-2);
+  border: 2px solid var(--text-color-2);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.work .boxes .box .foot .code:hover {
+  background-color: transparent;
+}
+.work .boxes .box .foot .code a {
+  color: var(--color-1);
+  transition: 0.5s;
+}
+.work .boxes .box .foot .code:hover a {
+  color: var(--text-color-2);
+}
+.work .boxes .box .foot .main-btn {
+  flex: 1;
+  text-align: center;
+}
+.work .parent {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.work .parent .boxes {
+  height: fit-content;
+}
+.work .more_project {
+  margin-top: 5rem;
+  text-align: center;
+}
+.work .more_project {
+  font-size: 1.3rem;
+}
+.work .more_project a {
+  color: var(--text-color-1);
+  font-weight: bold;
+  text-decoration: underline;
+  display: inline-block;
+  transition: 0.5s;
+}
+.work .more_project a:hover {
+  transform: scale(1.1);
+}
+/* <=========================== CONTACT ===========================> */
+.contact {
+  padding: 0rem 0 5rem;
+}
+.contact_container p {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+}
+.contact_container form {
+  margin-top: 2rem;
+  width: 550px;
+  max-width: 100%;
+  background-color: var(--color-3);
+  padding: 1rem;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+  border-radius: var(--border-raduis);
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+}
+.contact_container form .foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.contact_container form .box {
+  position: relative;
+  margin-bottom: 1rem;
+}
+.contact_container form .box label {
+  position: absolute;
+  color: var(--text-color-2);
+  top: 14px;
+  left: 15px;
+  transition: 0.5s;
+  background-color: var(--color-3);
+}
+.contact_container form .box.focus label {
+  transform: scale(0.8) translate(-1rem, -2.2rem);
+}
+.contact_container form .box input,
+.contact_container form .box textarea {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background-color: transparent;
+  outline: none;
+  border: 1px solid var(--text-color-2);
+  border-radius: var(--border-raduis);
+  resize: none;
+  font-size: 1.2rem;
+}
+.contact_container form .box input:focus,
+.contact_container form .box textarea:focus,
+.contact_container form .box input:valid,
+.contact_container form .box textarea:valid {
+  background-color: transparent;
+}
+.contact_container form .foot .social-media {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+.contact_container form .foot .social-media svg {
+  font-size: 1.4rem;
+  color: var(--text-color-2);
+  transition: 0.5s;
+}
+.contact_container form .foot .social-media svg:hover {
+  transform: scale(1.2);
+}
+.contact_container form .foot .main-btn {
+  padding: 0.3rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+/* <=========================== Media Query [Tablet] ===========================> */
+@media screen and (max-width: 1024px) {
+  .container {
+    width: var(--width-md-container);
+  }
+}
+/* <=========================== Media Query [Phone] ===========================> */
+@media screen and (max-width: 700px) {
+  .container {
+    width: var(--width-sm-container);
+  }
+  h1 {
+    font-size: 3.6rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.4rem;
+  }
+  .landing {
+    height: auto;
+  }
+  .landing_container {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    text-align: center;
+  }
+  .landing_container .text .main-btn {
+    margin: 3rem auto 0;
+  }
+  .about_container .about-me {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about_container .info-about-me {
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+  }
+  .about_container .info-about-me .profile {
+    width: 100%;
+  }
+  .about_container .info-about-me .skills {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
