@@ -5,10 +5,10 @@ window.addEventListener("load", (eo) => {
 });
 //TypedJS;
 var typed = new Typed(".typing", {
-  strings: ["Junior Front-End Developer.", "Student."],
-  typeSpeed: 80,
+  strings: ["Junior Front-End Developer."],
+  typeSpeed: 160,
   typeBack: 150,
-  loop: true,
+  loop: false,
 });
 
 // ScrollReveal
@@ -19,7 +19,6 @@ const sr = ScrollReveal({
   delay: 100,
   reset: false,
 });
-// sr.reveal("header");
 sr.reveal("header .landing .text", { origin: "left" });
 sr.reveal("header .landing .img", { origin: "right" });
 sr.reveal(".about");
@@ -28,7 +27,36 @@ sr.reveal(".about .info-about-me .skills", { origin: "right" });
 sr.reveal(".work");
 sr.reveal(".contact");
 sr.reveal(".contact form", { origin: "left" });
-
+// DarkMode
+const darkMode = document.querySelector(".dark");
+console.log(darkMode.firstElementChild);
+const lightMode = document.querySelector(".light");
+const html = document.querySelector("html");
+darkMode.addEventListener("click", (eo) => {
+  darkMode.firstElementChild.classList.add("none");
+  lightMode.firstElementChild.classList.remove("none");
+  html.classList.add("dark");
+});
+lightMode.addEventListener("click", (eo) => {
+  darkMode.firstElementChild.classList.remove("none");
+  lightMode.firstElementChild.classList.add("none");
+  html.classList.remove("dark");
+});
+//BackToTop Popup
+const backtotop = document.querySelector(".back-to-top");
+window.addEventListener("scroll", (eo) => {
+  if (window.scrollY > 400) {
+    backtotop.classList.add("opacity");
+  } else {
+    backtotop.classList.remove("opacity");
+  }
+});
+backtotop.addEventListener("click", (eo) => {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+  });
+});
 // NavBar
 const body = document.body;
 const navBar = document.getElementsByClassName("bars")[0];

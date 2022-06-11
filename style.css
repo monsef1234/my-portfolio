@@ -30,12 +30,18 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
+html.dark {
+  --color-3: #121212;
+  --text-color-1: #f6efe5;
+  --color-2: #1d1d1d;
+}
 body {
   position: relative;
   overflow-x: hidden;
   font-family: "Roboto Slab", serif;
   line-height: 1.7;
   background-color: var(--color-2);
+  transition: 0.6s;
 }
 h1,
 h2,
@@ -80,6 +86,43 @@ img {
   width: var(--width-lg-container);
   margin: 0 auto;
   padding: 0 1rem;
+}
+/* <=========================== BACK TO TOP ===========================> */
+.back-to-top {
+  background-color: var(--color-4);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--border-raduis);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  z-index: 10000;
+  animation: backtotopanimation 3s infinite;
+  opacity: 0;
+  transition: 0.6s;
+  cursor: pointer;
+}
+.back-to-top.opacity {
+  opacity: 1 !important;
+}
+.back-to-top svg {
+  font-size: 1.3rem;
+  color: var(--text-color-1);
+}
+@keyframes backtotopanimation {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0.8);
+  }
 }
 /* <=========================== MAIN BTN ===========================> */
 .main-btn {
@@ -192,9 +235,9 @@ img {
 }
 /* <=========================== HEADER ===========================> */
 header {
-  overflow: hidden;
   background-color: var(--color-3);
   height: auto;
+  transition: 0.6s;
 }
 /* <=========================== HEADER NAV ===========================> */
 header nav {
@@ -226,6 +269,42 @@ header nav.fixed {
 }
 .nav_container .logo img {
   width: 90px;
+}
+.nav_container .parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.nav_container .parent .dark-mode {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--border-raduis);
+  background-color: var(--color-4);
+  padding: 0.5rem;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+.nav_container .parent .dark-mode svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  width: 100%;
+  /* height: 100%; */
+}
+.nav_container .parent .dark-mode .fa-moon {
+  color: #071434;
+  z-index: 10;
+}
+.nav_container .parent .dark-mode .fa-sun {
+  color: #f6efe5;
+}
+.none {
+  display: none;
+  z-index: -5 !important;
 }
 .nav_container .bars {
   width: 40px;
@@ -291,8 +370,8 @@ header nav.fixed {
 }
 /* <=========================== ABOUT ===========================> */
 .about {
-  overflow: visible;
-  padding: 0 0 5rem;
+  padding: var(--section-padding);
+  transition: 0.6s;
 }
 
 .about_container .about-me {
@@ -307,6 +386,7 @@ header nav.fixed {
   width: 120px;
   height: 120px;
   border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
 }
 .about_container .about-me p {
   font-size: 1.2rem;
@@ -371,9 +451,10 @@ header nav.fixed {
 }
 /* <=========================== WORK ===========================> */
 .work {
-  overflow: visible;
   background-color: var(--color-3);
   position: relative;
+  padding: var(--section-padding);
+  transition: all 0.6s;
 }
 
 .work .boxes {
@@ -384,7 +465,7 @@ header nav.fixed {
   width: 320px;
   height: 500px;
   background-color: var(--color-2);
-  padding: 0.5rem;
+  padding: 0.8rem;
   border-radius: var(--border-raduis);
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
   transition: 0.5s;
@@ -400,7 +481,10 @@ header nav.fixed {
 .swiper-pagination {
   bottom: -40px !important;
 }
-
+.work .boxes .box h4 {
+  color: var(--text-color-1);
+  padding: 0.8rem 0;
+}
 .work .boxes .box img {
   height: 200px;
   border-radius: var(--border-raduis);
@@ -507,7 +591,8 @@ header nav.fixed {
 }
 /* <=========================== CONTACT ===========================> */
 .contact {
-  padding: 0rem 0 5rem;
+  padding: var(--section-padding);
+  transition: 0.6s;
 }
 .contact_container p {
   margin-top: 1rem;
@@ -558,6 +643,7 @@ header nav.fixed {
   border-radius: var(--border-raduis);
   resize: none;
   font-size: 1.2rem;
+  color: var(--text-color-1);
 }
 .contact_container form .box input:focus,
 .contact_container form .box textarea:focus,
@@ -596,7 +682,7 @@ header nav.fixed {
     width: var(--width-sm-container);
   }
   h1 {
-    font-size: 3.6rem;
+    font-size: 2.5rem;
   }
   h2 {
     font-size: 2rem;
@@ -611,6 +697,10 @@ header nav.fixed {
     grid-template-columns: 1fr;
     gap: 4rem;
     text-align: center;
+  }
+  .landing_container p {
+    font-size: 1.2rem;
+    font-weight: 500;
   }
   .landing_container .text .main-btn {
     margin: 3rem auto 0;
