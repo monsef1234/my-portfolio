@@ -1,3 +1,13 @@
+// Landing Img animation
+const img = document.querySelector(".landing img");
+const imgAnimation = () => {
+  if (window.scrollY >= img.getBoundingClientRect().top) {
+    img.style.transform = `translateY(${window.scrollY}px)`;
+  } else {
+    img.style.transform = `translateY(0px)`;
+  }
+};
+window.addEventListener("scroll", imgAnimation);
 //PreLoader
 const preloader = document.querySelector(".preloader");
 window.addEventListener("load", (eo) => {

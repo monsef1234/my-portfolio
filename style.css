@@ -353,6 +353,11 @@ header nav.fixed {
   align-items: center;
   justify-content: center;
 }
+.landing_container .img img {
+  position: relative;
+  z-index: -100;
+  transition: 0.6s;
+}
 .landing_container .text {
   display: flex;
   flex-direction: column;
